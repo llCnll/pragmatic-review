@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "pragmatic-review": {
+      "description": "单一公开审查入口：根据自然语言解析范围和审查方向，执行 maintainability-first review。",
+      "mode": "subagent",
+      "prompt": "使用本地 skill pragmatic-review。根据用户自然语言解析范围：默认当前工作区未提交改动；用户明确要求暂存区时只审查暂存区。根据用户自然语言解析审查方向：可选前端、后端、可靠性、架构。输出中文，只报告高信号、可执行、值得修的问题。"
+    }
+  }
+}

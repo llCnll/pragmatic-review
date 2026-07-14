@@ -1,0 +1,14 @@
+---
+description: Reliability overlay for hotfixes, async workflows, and external side effects
+alwaysApply: false
+---
+
+When the change touches retries, jobs, external APIs, queues, or hotfix logic, add:
+
+@../../../../src/skills/pragmatic-review/prompts/specializations/reliability.md
+@../../../../src/skills/pragmatic-review/prompts/modules/errors-observability.md
+@../../../../src/skills/pragmatic-review/prompts/modules/coupling-side-effects.md
+
+Require a concrete failure mode before reporting a reliability issue.
+
+

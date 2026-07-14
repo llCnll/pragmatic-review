@@ -1,0 +1,13 @@
+---
+description: Architecture overlay for boundary movement and shared helper changes
+alwaysApply: false
+---
+
+When the change introduces a new layer, cross-module dependency, base helper, or shared abstraction, add:
+
+@../../../../src/skills/pragmatic-review/prompts/modules/architecture-drift.md
+@../../../../src/skills/pragmatic-review/prompts/specializations/architecture.md
+
+Resist extra layers that do not clearly reduce real complexity.
+
+

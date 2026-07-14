@@ -1,0 +1,92 @@
+core:
+  name: pragmatic-review
+  default_language: zh-CN
+  default_max_findings: 3
+  deep_mode_max_findings: 5
+  severity_override_cap:
+    - P0
+    - P1
+
+scopes:
+  scope-uncommitted:
+    scope: working-tree-uncommitted
+    git_sources:
+      - git diff --cached
+      - git diff
+    includes_untracked_when_relevant: true
+
+  scope-staged:
+    scope: staged
+    git_sources:
+      - git diff --cached
+    includes_untracked_when_relevant: false
+
+lenses:
+  lens-frontend:
+    specializations:
+      - frontend
+      - performance
+
+  lens-backend:
+    specializations:
+      - backend
+      - reliability
+
+  lens-reliability:
+    specializations:
+      - reliability
+    extra_modules:
+      - errors-observability
+      - coupling-side-effects
+
+  lens-architecture:
+    specializations:
+      - architecture
+    extra_modules:
+      - architecture-drift
+
+compositions:
+  default:
+    scope: scope-uncommitted
+    lenses: []
+    output: concise-findings
+
+  frontend-fast:
+    scope: scope-uncommitted
+    lenses:
+      - lens-frontend
+    output: concise-findings
+
+  backend-reliability:
+    scope: scope-uncommitted
+    lenses:
+      - lens-backend
+      - lens-reliability
+    output: concise-findings
+
+  architecture-deep:
+    scope: scope-uncommitted
+    lenses:
+      - lens-architecture
+    output: deep-findings
+    max_findings: 5
+
+  staged-safe:
+    scope: scope-staged
+    lenses: []
+    output: concise-findings
+
+routing:
+  default_scope: scope-uncommitted
+  optional_lenses:
+    - lens-frontend
+    - lens-backend
+    - lens-reliability
+    - lens-architecture
+  silence_threshold: medium
+  prioritize:
+    - bug-risk
+    - maintainability
+    - cognitive-complexity
+    - evolution-risk
+    - implementation-cost

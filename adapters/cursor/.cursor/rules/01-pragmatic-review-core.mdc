@@ -1,0 +1,29 @@
+---
+description: Pragmatic pre-commit code review over current working-tree uncommitted changes with maintainability-first priorities
+alwaysApply: false
+---
+
+Use this rule when the user asks for code review, pre-commit review, or review of current changes.
+
+Supported scope classes:
+- working-tree uncommitted changes
+- staged changes
+- other explicitly requested ranges
+
+Default behavior:
+- review current working-tree uncommitted changes
+- inspect staged changes with `git diff --cached`
+- inspect unstaged tracked changes with `git diff`
+- include untracked files when relevant and readable
+- if nothing is changed, say that clearly in Chinese and stop
+
+Load the framework files:
+@../../../../src/skills/pragmatic-review/prompts/core/00-identity.md
+@../../../../src/skills/pragmatic-review/prompts/core/01-scope-model.md
+@../../../../src/skills/pragmatic-review/prompts/core/02-prioritization.md
+@../../../../src/skills/pragmatic-review/prompts/core/03-output-contract.md
+@../../../../src/skills/pragmatic-review/prompts/routing/review-router.md
+@../../../../src/skills/pragmatic-review/prompts/anti-patterns/catalog.md
+@../../../../src/skills/pragmatic-review/prompts/modules/maintainability.md
+@../../../../src/skills/pragmatic-review/prompts/modules/duplication-abstraction.md
+@../../../../src/skills/pragmatic-review/prompts/modules/cognitive-complexity.md

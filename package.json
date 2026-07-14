@@ -1,0 +1,16 @@
+{
+  "name": "ai-review-framework",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Source-of-truth repository for a modular pragmatic AI code review framework.",
+  "license": "UNLICENSED",
+  "skillPackage": {
+    "name": "pragmatic-review",
+    "description": "Maintainability-first pragmatic AI code review skill.",
+    "license": "UNLICENSED"
+  },
+  "scripts": {
+    "validate:parity": "python scripts/validate-preset-parity.py",
+    "build:publish": "python scripts/build-publish-package.py"
+  }
+}

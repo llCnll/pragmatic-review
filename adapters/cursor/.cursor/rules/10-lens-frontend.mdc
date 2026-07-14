@@ -1,0 +1,14 @@
+---
+description: Frontend overlay for pragmatic pre-commit review
+globs:
+  - "**/*.{js,jsx,ts,tsx,vue,svelte,css,scss,less}"
+alwaysApply: false
+---
+
+When the current uncommitted changes are mostly frontend code, add:
+
+@../../../../src/skills/pragmatic-review/prompts/specializations/frontend.md
+@../../../../src/skills/pragmatic-review/prompts/specializations/performance.md
+
+Keep output in Chinese and suppress cosmetic UI feedback.
+

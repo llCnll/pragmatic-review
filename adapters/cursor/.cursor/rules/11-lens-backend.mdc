@@ -1,0 +1,17 @@
+---
+description: Backend overlay for pragmatic pre-commit review
+globs:
+  - "**/*.{go,py,rb,php,java,kt,cs,rs}"
+  - "**/api/**"
+  - "**/service/**"
+  - "**/jobs/**"
+alwaysApply: false
+---
+
+When the current uncommitted changes are mostly backend or workflow code, add:
+
+@../../../../src/skills/pragmatic-review/prompts/specializations/backend.md
+@../../../../src/skills/pragmatic-review/prompts/specializations/reliability.md
+
+Bias toward failure paths, side-effect ordering, and debugging simplicity.
+
