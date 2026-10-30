@@ -1,0 +1,7 @@
+interface:
+  display_name: "Pragmatic Review"
+  short_description: "High-signal maintainability-first code review"
+  default_prompt: "使用 $pragmatic-review 审查当前未提交改动。"
+
+policy:
+  allow_implicit_invocation: true
