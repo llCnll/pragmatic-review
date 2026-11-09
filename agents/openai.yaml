@@ -1,7 +1,7 @@
 interface:
   display_name: "Pragmatic Review"
-  short_description: "High-signal maintainability-first code review"
-  default_prompt: "使用 $pragmatic-review 审查当前未提交改动。"
+  short_description: "Code review and repository development-standard audits"
+  default_prompt: "使用 $pragmatic-review 按仓库规范审查指定改动；需要规范统计时按类别给出依据和举例。"
 
 policy:
   allow_implicit_invocation: true

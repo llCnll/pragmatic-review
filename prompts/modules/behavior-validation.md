@@ -1,18 +1,17 @@
 # Behavior and Validation Evidence
 
-Load when the diff changes behavior covered by a confirmed requirement, design, or API contract, or touches high-risk boundaries such as permissions, migrations, concurrency, external effects, or irreversible operations.
+Load for changes governed by confirmed requirements or contracts, or involving permissions, migrations, concurrency, shared state, external effects, and recovery.
 
 ## Contract alignment
 
-- Treat the confirmed requirement or contract as expected behavior; trace it forward into code, tests, and caller-facing docs.
-- Trace changed behavior back to the contract to find material undocumented or unapproved behavior.
-- Use code, tests, and runtime results as evidence of observed behavior. Surface unclear contract meaning as an unresolved decision.
-- For refactors, assess behavior preservation against relevant observable results and verification evidence.
+Trace confirmed acceptance into code, tests, and caller-facing sources. Trace the diff back to its requirements and approved changes. Use code and runtime results as current facts, and record material contractual decisions still awaiting confirmation.
 
-## Risk evidence
+For refactors, assess behavior preservation against observable results and state boundaries.
 
-- Relate each critical behavior to its implementation path, state boundary, verification, runtime environment, and observable assertion.
-- Use mocks to check application decisions; use integration evidence for semantics owned by databases, caches, and external services.
-- For outbound HTTP changes, compare the business payload with the final method, URL, headers, query, body, and field mapping conditions.
+## Risk and evidence
 
-Report material gaps with evidence from the contract and changed code, then state caller or operational impact and a practical correction.
+Read [validation evidence](../../references/validation-evidence.md) for the relevant capability and target-environment checks. Relate each critical behavior to its implementation path, state boundary, verification method, environment, expectation, and actual result.
+
+For outbound HTTP, compare business payload, final method, address, headers, query, body, and remote result. Assess compatibility, successful checkpoints, partial failure, and recovery according to the actual use case.
+
+Report material gaps with their coverage and operational impact, then suggest the smallest verification or correction that can resolve them.

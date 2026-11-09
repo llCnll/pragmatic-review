@@ -1,9 +1,9 @@
-# Anti-pattern Filter
+# Evidence Filter
 
-Suppress comments on formatting, naming preferences, or small cleanup without a clear maintenance payoff.
+For code review, prioritize actionable behavior and maintenance findings with demonstrated payoff. For a requested standards audit, include explicitly applicable project rules and configuration, including routine format and naming requirements.
 
-Recommend abstractions, layers, or refactors only when they reduce a concrete current cost or likely future change pain. Keep domain intent visible and account for added indirection and navigation.
+Investigate an `if/else`, literal, mapping, Mixin, wrapper, or DTO conversion through its business meaning, owner, repetition, dependency path, and actual cost.
 
-Generalize from demonstrated needs in the selected change. Treat performance as a finding when waste is direct, visible, and worth fixing now.
+Recommend abstractions, layers, or refactors that reduce concrete current costs or evidence-supported evolution risks. Account for added navigation and indirection; keep necessary protocol mappings and clear protection branches.
 
-For every proposed change, be able to state the current cost, likely future impact, and how the recommendation improves them.
+Generalize from demonstrated needs in the selected scope. Performance findings use visible, worthwhile waste or suitable measurement. Explain how each proposed change improves the observed problem.

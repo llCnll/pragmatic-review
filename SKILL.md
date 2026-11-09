@@ -1,33 +1,33 @@
 ---
 name: pragmatic-review
-description: Pragmatic, maintainability-first code review for selected changes. Use when reviewing code diffs; scope and review focus follow the user's request.
+description: Review code diffs or audit development-standard compliance using repository rules, evidence, and maintainability criteria.
 ---
 
-# pragmatic-review
+# Pragmatic Review
 
-Review selected code changes with high signal and a pragmatic senior-engineer perspective.
+Assess selected changes against repository rules and confirmed contracts. Provide general engineering-quality criteria, review methods, and reusable improvement patterns.
+
+## Authority and mode
+
+User instructions and repository-specific rules take precedence over general defaults. Treat confirmed contracts as acceptance, code and runtime results as current facts, and patterns as options whose applicability is supported by evidence.
+
+Choose the requested output purpose:
+
+- **Code review** is the default: report actionable findings ranked by operational and maintenance cost.
+- **Standards audit** applies to development-rule conformance checks, problem categories, compliance inventories, or measured counts. Follow [standards audit](references/standards-audit.md) at the requested granularity.
+- **Implementation, diagnosis, or validation guidance:** Read the [engineering-quality baseline](references/engineering-guidelines.md), [validation evidence](references/validation-evidence.md), or [pattern index](references/patterns/index.md) for the requested decision, and act within the user's authorized task.
 
 ## Read model
 
-For each review, load:
-- prompts/core/ for identity, scope, prioritization, and output
-- prompts/routing/review-router.md
-- prompts/anti-patterns/catalog.md
+For review and audit, read:
 
-Start with:
-- prompts/modules/maintainability.md
-- prompts/modules/duplication-abstraction.md
-- prompts/modules/cognitive-complexity.md
+- `prompts/core/`: authority, scope, prioritization, and mode-specific output.
+- [engineering-quality baseline](references/engineering-guidelines.md): shared implementation, diagnosis, and assessment criteria.
+- [review router](prompts/routing/review-router.md).
+- [evidence filter](prompts/anti-patterns/catalog.md).
 
-Load other modules when the router finds matching evidence:
-- prompts/modules/coupling-side-effects.md
-- prompts/modules/errors-observability.md
-- prompts/modules/obvious-performance.md
-- prompts/modules/architecture-drift.md
-- prompts/modules/behavior-validation.md
+Start with maintainability, duplication-abstraction, and cognitive-complexity in `prompts/modules/`. Load coupling-side-effects, errors-observability, obvious-performance, architecture-drift, or behavior-validation when the diff supplies matching evidence.
 
-Apply a domain specialization only when the requested lens or changed code makes it useful. Scope and review focus are chosen from the user's request; they are not separate public skills.
+Apply the shared baseline within repository rules and confirmed acceptance. Read [validation evidence](references/validation-evidence.md) for relevant risk boundaries, and select patterns or domain specializations that help assess an observed issue or proposed improvement.
 
-Scope selects the changes under review; a focus changes what to prioritize. A focus never widens scope or lowers the evidence threshold.
-
-Modules cover recurring problem types; specializations add domain context. Select each independently from the diff and the requested focus.
+Scope selects the code under assessment; focus sets priorities inside that scope. Each finding meets the evidence threshold. Investigate an `if`, constant, mapping, Mixin, or DTO conversion through its ownership, behavior, and concrete cost.

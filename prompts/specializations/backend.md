@@ -3,7 +3,7 @@ Focus:
 - transaction boundary confusion
 - hidden write ordering assumptions
 - API contract drift
-- business logic split across layers without clear ownership
+- ownership of business logic spanning layer boundaries
 
 Check:
 - what happens after the first side effect succeeds and the next one fails
